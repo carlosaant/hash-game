@@ -24,7 +24,9 @@ function updateSquares() {
 
   squares.forEach(square => {
     let position = square.id;
+
     let symbol = board[position];
+
     if (symbol != '') {
       if (symbol == 'x') {
         square.classList.remove('player2');
