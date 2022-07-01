@@ -4,11 +4,7 @@ let player1name = document.getElementById('name_player1');
 let player2name = document.getElementById('name_player2');
 
 document.addEventListener('DOMContentLoaded', () => {
-  let squares = document.querySelectorAll('.square');
-
-  squares.forEach(square => {
-    square.addEventListener('click', handleClick);
-  });
+  iniciarGame();
 });
 //quando a pagina carregar por completo
 
@@ -65,4 +61,31 @@ function verificaVencedor() {
       alert('Jogador O ganhou');
     }
   }
+}
+
+function iniciarGame() {
+  return new Promise(function (resolve, reject) {
+    if (player1name.value == '') {
+      player1name.value = 'Player 1';
+      resolve();
+    }
+    if (player2name.value == '') {
+      player2name.value = 'Player 2';
+      resolve();
+    }
+    reject({
+      msg: 'Erro de processo'
+    });
+  })
+    .then(carregarSquares)
+    .then(atualizaJogadorCampo);
+  // atualizaJogadorCampo();
+  // carregarSquares();
+}
+
+async function carregarSquares() {
+  let squares = document.querySelectorAll('.square');
+  await squares.forEach(square => {
+    square.addEventListener('click', handleClick);
+  });
 }
