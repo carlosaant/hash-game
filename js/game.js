@@ -15,11 +15,13 @@ const winState = [
 
 let p1 = {
   ativo: true,
-  symbol: 'x'
+  symbol: 'x',
+  win: 0
 };
 let p2 = {
   ativo: false,
-  symbol: 'o'
+  symbol: 'o',
+  win: 0
 };
 
 let gameOver = false;
@@ -38,6 +40,8 @@ function handleMove(position) {
       if (!gameOver) {
         p1.ativo = false;
         p2.ativo = true;
+      } else {
+        p1.win++;
       }
     } else if (p2.ativo) {
       board[position] = p2.symbol;
@@ -45,6 +49,8 @@ function handleMove(position) {
       if (!gameOver) {
         p2.ativo = false;
         p1.ativo = true;
+      } else {
+        p2.win++;
       }
     }
   }
