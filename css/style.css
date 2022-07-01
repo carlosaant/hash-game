@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +13,8 @@
   --sec-color: #65a037;
   --natural-color-1: #f3fcea;
   --natural-color-2: #f6edd9;
+  --tittle-font: 'Lilita One', cursive;
+  --text-font: 'Basic', sans-serif;
 }
 
 html,
@@ -25,6 +30,29 @@ body {
   overflow: overlay;
 }
 
+header {
+  padding-block: 5rem;
+}
+
+header .header-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+header img {
+  width: 5rem;
+}
+
+header h1 {
+  text-align: center;
+  font-family: var(--text-font);
+  font-size: 5rem;
+  color: var(--natural-color-1);
+  text-transform: uppercase;
+}
+
 .wrapper {
   width: min(50rem, 100%);
   margin-left: auto;
@@ -32,7 +60,7 @@ body {
 
   padding-inline: 2.4rem;
 
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 /* ----------------------------------------- */
 
