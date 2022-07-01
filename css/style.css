@@ -111,6 +111,32 @@ input[type='text']:focus {
   overflow: hidden;
 }
 
+#gameconfigs .controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
+}
+
+#gameconfigs .controls input[type='button'] {
+  width: 15rem;
+  border: 0.5rem solid transparent;
+  border-radius: 0.5rem;
+  background-color: var(--natural-color-1);
+
+  padding-block: 0.5rem;
+
+  font-size: 1.6rem;
+  font-family: var(--text-font);
+  color: var(--pri-color);
+}
+
+/* ------------------- */
+#game {
+  padding-block: 0.5rem;
+}
+
 #game .stage {
   display: flex;
   flex-direction: row;
