@@ -2,9 +2,10 @@
 
 let player1name = document.getElementById('name_player1');
 let player2name = document.getElementById('name_player2');
+const button_game = document.getElementById('btn_game');
 
 document.addEventListener('DOMContentLoaded', () => {
-  iniciarGame();
+  button_game.addEventListener('click', iniciarGame);
 });
 //quando a pagina carregar por completo
 
@@ -56,7 +57,7 @@ function atualizaJogadorCampo() {
 function verificaVencedor() {
   if (gameOver) {
     if (p1.ativo) {
-      alert('Jogador X ganhou');
+      alert(`Jogador ${player1name.value} ganhou`);
     } else if (p2.ativo) {
       alert('Jogador O ganhou');
     }
@@ -67,15 +68,11 @@ function iniciarGame() {
   return new Promise(function (resolve, reject) {
     if (player1name.value == '') {
       player1name.value = 'Player 1';
-      resolve();
     }
     if (player2name.value == '') {
       player2name.value = 'Player 2';
-      resolve();
     }
-    reject({
-      msg: 'Erro de processo'
-    });
+    resolve();
   })
     .then(carregarSquares)
     .then(atualizaJogadorCampo);

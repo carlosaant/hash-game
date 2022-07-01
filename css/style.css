@@ -120,7 +120,7 @@ input[type='text']:focus {
 }
 
 #gameconfigs .controls input[type='button'] {
-  width: 15rem;
+  padding-inline: 5rem;
   border: 0.5rem solid transparent;
   border-radius: 0.5rem;
   background-color: var(--natural-color-1);
@@ -130,6 +130,11 @@ input[type='text']:focus {
   font-size: 1.6rem;
   font-family: var(--text-font);
   color: var(--pri-color);
+
+  transition: all 0.2s;
+}
+#gameconfigs .controls input[type='button']:hover {
+  padding-inline: 6rem;
 }
 
 /* ------------------- */
