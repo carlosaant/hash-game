@@ -36,25 +36,17 @@ function handleClick(event) {
   // atualizaJogadorCampo();
 }
 
-// function updateSquares() {
-//   let squares = document.querySelectorAll('.square');
+function resetSquares() {
+  return new Promise(function (resolve, reject) {
+    let squares = document.querySelectorAll('.square');
 
-//   squares.forEach(square => {
-//     let position = square.id;
-
-//     let symbol = board[position];
-
-//     if (symbol != '') {
-//       if (symbol == 'x') {
-//         square.classList.remove('player2');
-//         square.classList.add('player1');
-//       } else if (symbol == 'o') {
-//         square.classList.remove('player1');
-//         square.classList.add('player2');
-//       }
-//     }
-//   });
-// }
+    squares.forEach(square => {
+      square.classList.remove('player1');
+      square.classList.remove('player2');
+    });
+    resolve();
+  }).then(resetGame);
+}
 
 function atualizaJogadorCampo() {
   if (p1.ativo) {

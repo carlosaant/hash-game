@@ -85,3 +85,8 @@ function isWin() {
   }
   return false;
 }
+
+function resetGame() {
+  board = ['', '', '', '', '', '', '', '', ''];
+  gameOver = false;
+}
