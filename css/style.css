@@ -174,12 +174,17 @@ input[type='text']:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-image: url('../assets/icon-x.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.player1::after {
+/* .player1::after {
   content: 'X';
   font-size: 2rem;
   line-height: 5rem;
-}
+} */
 
 .player2 {
   width: 100%;
@@ -188,11 +193,16 @@ input[type='text']:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-image: url('../assets/icon-o.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.player2::after {
+/* .player2::after {
   content: 'O';
   font-size: 2rem;
   line-height: 5rem;
-}
+} */
 
 /* ----------------------- */
