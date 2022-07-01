@@ -234,3 +234,31 @@ input[type='text']:focus {
   font-family: var(--text-font);
   color: var(--natural-color-2);
 }
+
+#game .playerplacar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  padding-block: 2rem;
+}
+
+#game .playerplacar .pplacar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#game .playerplacar .pplacar span {
+  font-size: 1.6rem;
+  font-family: var(--text-font);
+  line-height: 100%;
+  color: var(--natural-color-2);
+}
+
+#game .playerplacar .pplacar #p1placar,
+#game .playerplacar .pplacar #p2placar {
+  color: var(--sec-color);
+}
