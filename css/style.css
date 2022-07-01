@@ -163,6 +163,12 @@ input[type='text']:focus {
   padding: 5rem;
 
   background-color: var(--sec-color);
+
+  transition: transform 0.2s;
+}
+#game .stage .row .square:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 2px 1px var(--pri-color);
 }
 
 /* ------------------- */
@@ -177,8 +183,10 @@ input[type='text']:focus {
 
   background-image: url('../assets/icon-x.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 6rem;
   background-position: center;
+
+  opacity: 1;
 }
 /* .player1::after {
   content: 'X';
@@ -196,7 +204,7 @@ input[type='text']:focus {
 
   background-image: url('../assets/icon-o.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 6rem;
   background-position: center;
 }
 /* .player2::after {
