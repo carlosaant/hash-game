@@ -18,9 +18,15 @@ function handleClick(event) {
   let square = event.target;
   let position = square.id;
 
-  handleMove(position);
-  updateSquares();
-  atualizaJogadorCampo();
+  handleMove(position)
+    .then(updateSquares)
+    .then(atualizaJogadorCampo)
+    .then(verificaVencedor)
+    .catch(error => {
+      console.log(error.msg);
+    });
+  // updateSquares();
+  // atualizaJogadorCampo();
 }
 
 function updateSquares() {
@@ -48,5 +54,15 @@ function atualizaJogadorCampo() {
     document.getElementById('playermove').textContent = player1name.value;
   } else if (p2.ativo) {
     document.getElementById('playermove').textContent = player2name.value;
+  }
+}
+
+function verificaVencedor() {
+  if (gameOver) {
+    if (p1.ativo) {
+      alert('Jogador X ganhou');
+    } else if (p2.ativo) {
+      alert('Jogador O ganhou');
+    }
   }
 }

@@ -29,31 +29,43 @@ let gameOver = false;
 // ---------------------------------
 
 function handleMove(position) {
-  if (gameOver) {
-    return;
-  }
-
-  if (board[position] == '') {
-    if (p1.ativo) {
-      board[position] = p1.symbol;
-      gameOver = isWin();
-      if (!gameOver) {
-        p1.ativo = false;
-        p2.ativo = true;
-      } else {
-        p1.win++;
-      }
-    } else if (p2.ativo) {
-      board[position] = p2.symbol;
-      gameOver = isWin();
-      if (!gameOver) {
-        p2.ativo = false;
-        p1.ativo = true;
-      } else {
-        p2.win++;
-      }
+  let promise = new Promise(function (resolve, reject) {
+    if (gameOver) {
+      // return;
+      reject({
+        msg: 'Fim de jogo'
+      });
     }
-  }
+
+    if (board[position] == '') {
+      if (p1.ativo) {
+        board[position] = p1.symbol;
+
+        gameOver = isWin();
+        if (!gameOver) {
+          p1.ativo = false;
+          p2.ativo = true;
+        } else {
+          p1.win++;
+        }
+      } else if (p2.ativo) {
+        board[position] = p2.symbol;
+        gameOver = isWin();
+        if (!gameOver) {
+          p2.ativo = false;
+          p1.ativo = true;
+        } else {
+          p2.win++;
+        }
+      }
+
+      resolve();
+    } else {
+      resolve();
+    }
+  });
+
+  return promise;
 }
 
 function isWin() {
