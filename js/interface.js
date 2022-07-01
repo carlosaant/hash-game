@@ -3,6 +3,10 @@
 let player1name = document.getElementById('name_player1');
 let player2name = document.getElementById('name_player2');
 const button_game = document.getElementById('btn_game');
+const placarp1 = document.getElementById('p1placar');
+const placarp2 = document.getElementById('p2placar');
+
+// ------------------
 
 document.addEventListener('DOMContentLoaded', () => {
   button_game.addEventListener('click', iniciarGame);
@@ -77,7 +81,12 @@ function iniciarGame() {
     resolve();
   })
     .then(carregarSquares)
-    .then(atualizaJogadorCampo);
+    .then(atualizaJogadorCampo)
+    .then(() => {
+      document.getElementById('p1name').textContent = player1name.value;
+      document.getElementById('p2name').textContent = player2name.value;
+    })
+    .then(placarPlayers);
   // atualizaJogadorCampo();
   // carregarSquares();
 }
@@ -87,4 +96,9 @@ async function carregarSquares() {
   await squares.forEach(square => {
     square.addEventListener('click', handleClick);
   });
+}
+
+function placarPlayers() {
+  placarp1.textContent = p1.win;
+  placarp2.textContent = p2.win;
 }

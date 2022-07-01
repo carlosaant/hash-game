@@ -260,5 +260,6 @@ input[type='text']:focus {
 
 #game .playerplacar .pplacar #p1placar,
 #game .playerplacar .pplacar #p2placar {
+  font-size: 3rem;
   color: var(--sec-color);
 }
