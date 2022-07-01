@@ -1,5 +1,8 @@
 'use strict';
 
+let player1name = document.getElementById('name_player1');
+let player2name = document.getElementById('name_player2');
+
 document.addEventListener('DOMContentLoaded', () => {
   let squares = document.querySelectorAll('.square');
 
@@ -17,6 +20,7 @@ function handleClick(event) {
 
   handleMove(position);
   updateSquares();
+  atualizaJogadorCampo();
 }
 
 function updateSquares() {
@@ -37,4 +41,12 @@ function updateSquares() {
       }
     }
   });
+}
+
+function atualizaJogadorCampo() {
+  if (p1.ativo) {
+    document.getElementById('playermove').textContent = player1name.value;
+  } else if (p2.ativo) {
+    document.getElementById('playermove').textContent = player2name.value;
+  }
 }
