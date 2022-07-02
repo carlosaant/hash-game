@@ -18,6 +18,19 @@ function handleClick(event) {
   let position = squares.id;
 
   handleMove(position)
+    .then((empate)=>{
+      if(empate){
+        alert('empate!');
+      }else if (gameOver) {
+        if (p1.ativo) {
+          placarPlayers();
+          alert(`Jogador ${player1name.value} ganhou`);
+        } else if (p2.ativo) {
+          placarPlayers();
+          alert('Jogador O ganhou');
+        }
+      }
+    })
     .then(() => {
       let square = document.getElementById(position.toString());
       let symbol = board[position];
@@ -32,7 +45,6 @@ function handleClick(event) {
       }
     })
     .then(atualizaJogadorCampo)
-    .then(verificaVencedor)
     .catch(error => {
       console.log(error.msg);
     });
@@ -60,15 +72,15 @@ function atualizaJogadorCampo() {
   }
 }
 
-function verificaVencedor() {
-  if (gameOver) {
-    if (p1.ativo) {
-      alert(`Jogador ${player1name.value} ganhou`);
-    } else if (p2.ativo) {
-      alert('Jogador O ganhou');
-    }
-  }
-}
+// function verificaVencedor() {
+//   if (gameOver) {
+//     if (p1.ativo) {
+//       alert(`Jogador ${player1name.value} ganhou`);
+//     } else if (p2.ativo) {
+//       alert('Jogador O ganhou');
+//     }
+//   }
+// }
 
 function iniciarGame() {
   return new Promise(function (resolve, reject) {

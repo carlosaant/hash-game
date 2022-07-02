@@ -35,34 +35,42 @@ function handleMove(position) {
       reject({
         msg: 'Fim de jogo'
       });
-    }
+    }else{
 
-    if (board[position] == '') {
-      if (p1.ativo) {
-        board[position] = p1.symbol;
-
-        gameOver = isWin();
-        if (!gameOver) {
-          p1.ativo = false;
-          p2.ativo = true;
+      if(!board.includes('')){
+        gameOver = true;
+        let empate = true;
+        resolve(empate);
+      }
+      else{
+        if (board[position] == '') {
+          if (p1.ativo) {
+            board[position] = p1.symbol;
+            gameOver = isWin();
+            if (!gameOver) {
+              p1.ativo = false;
+              p2.ativo = true;
+            } else {
+              p1.win++;
+            }
+          } else if (p2.ativo) {
+            board[position] = p2.symbol;
+            gameOver = isWin();
+            if (!gameOver) {
+              p2.ativo = false;
+              p1.ativo = true;
+            } else {
+              p2.win++;
+            }
+          }
+    
+          resolve();
         } else {
-          p1.win++;
-        }
-      } else if (p2.ativo) {
-        board[position] = p2.symbol;
-        gameOver = isWin();
-        if (!gameOver) {
-          p2.ativo = false;
-          p1.ativo = true;
-        } else {
-          p2.win++;
+          resolve();
         }
       }
-
-      resolve();
-    } else {
-      resolve();
     }
+
   });
 
   return promise;
