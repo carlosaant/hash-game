@@ -20,17 +20,20 @@ function handleClick(event) {
 
   handleMove(position)
     .then((empate)=>{
-      if(empate){
-        alert('empate!');
+      console.log(empate)
+      if(empate && gameOver){
+        win_text_message.innerText = `Nenhum Vencedor!`;
+        win_div_message.classList.add('show');
       }else if (gameOver) {
         if (p1.ativo) {
           placarPlayers();
           // alert(`Jogador ${player1name.value} ganhou`);
-          win_text_message.innerText = `Jogador ${player1name.value} ganhou`;
+          win_text_message.innerText = `Jogador ${player1name.value} Venceu!`;
           win_div_message.classList.add('show');
         } else if (p2.ativo) {
           placarPlayers();
-          alert('Jogador O ganhou');
+          win_text_message.innerText = `Jogador ${player2name.value} Venceu!`;
+          win_div_message.classList.add('show');
         }
       }
     })
