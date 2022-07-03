@@ -7,10 +7,12 @@ const placarp1 = document.getElementById('p1placar');
 const placarp2 = document.getElementById('p2placar');
 const win_div_message = document.getElementById('winMessage');
 const win_text_message = document.getElementById('winMessageText');
+const btn_reiniciar = document.getElementById('btnReinicia');
 // ------------------
 
 document.addEventListener('DOMContentLoaded', () => {
   button_game.addEventListener('click', iniciarGame);
+  btn_reiniciar.addEventListener('click', resetSquares);
 });
 //quando a pagina carregar por completo
 
@@ -67,7 +69,10 @@ function resetSquares() {
       square.classList.remove('player2');
     });
     resolve();
-  }).then(resetGame);
+  }).then(resetGame)
+  .then(()=>{
+    win_div_message.classList.remove('show');
+  });
 }
 
 function atualizaJogadorCampo() {
