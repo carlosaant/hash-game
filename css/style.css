@@ -263,3 +263,47 @@ input[type='text']:focus {
   font-size: 3rem;
   color: var(--sec-color);
 }
+
+/* ------- */
+
+.win-message{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5rem;
+
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#winMessageText{
+  background-color: var(--natural-color-1);
+  padding-block: 5rem;
+  padding-inline: 8rem;
+  border-radius: 5px;
+
+  font-size: 2rem;
+  font-family: var(--text-font);
+  line-height: 100%;
+}
+
+#btnReinicia{
+  background-color: var(--natural-color-2);
+  font-size: 1.6rem;
+  font-family: var(--text-font);
+  color: var(--pri-color);
+  border: 1px solid transparent;
+  border-radius: 2px;
+
+  padding-block: 1.5rem;
+  padding-inline: 4rem;
+}
+
+.show{
+  display: flex;
+}
