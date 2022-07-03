@@ -5,7 +5,8 @@ let player2name = document.getElementById('name_player2');
 const button_game = document.getElementById('btn_game');
 const placarp1 = document.getElementById('p1placar');
 const placarp2 = document.getElementById('p2placar');
-
+const win_div_message = document.getElementById('winMessage');
+const win_text_message = document.getElementById('winMessageText');
 // ------------------
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +25,9 @@ function handleClick(event) {
       }else if (gameOver) {
         if (p1.ativo) {
           placarPlayers();
-          alert(`Jogador ${player1name.value} ganhou`);
+          // alert(`Jogador ${player1name.value} ganhou`);
+          win_text_message.innerText = `Jogador ${player1name.value} ganhou`;
+          win_div_message.classList.add('show');
         } else if (p2.ativo) {
           placarPlayers();
           alert('Jogador O ganhou');
