@@ -36,13 +36,7 @@ function handleMove(position) {
         msg: 'Fim de jogo'
       });
     }else{
-
-      if(!board.includes('')){
-        gameOver = true;
-        let empate = true;
-        resolve(empate);
-      }
-      else{
+     
         if (board[position] == '') {
           if (p1.ativo) {
             board[position] = p1.symbol;
@@ -63,12 +57,18 @@ function handleMove(position) {
               p2.win++;
             }
           }
+
+          if(!board.includes('')){
+            gameOver = true;
+            let empate = true;
+            resolve(empate);
+          }
     
           resolve();
         } else {
           resolve();
         }
-      }
+      
     }
 
   });
