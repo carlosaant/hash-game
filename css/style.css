@@ -266,22 +266,22 @@ input[type='text']:focus {
 
 /* ------- */
 
-.win-message{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 5rem;
+.win-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
 
-    background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
-#winMessageText{
+#winMessageText {
   background-color: var(--natural-color-1);
   padding-block: 5rem;
   padding-inline: 8rem;
@@ -292,7 +292,7 @@ input[type='text']:focus {
   line-height: 100%;
 }
 
-#btnReinicia{
+#btnReinicia {
   background-color: var(--natural-color-2);
   font-size: 1.6rem;
   font-family: var(--text-font);
@@ -302,8 +302,13 @@ input[type='text']:focus {
 
   padding-block: 1.5rem;
   padding-inline: 4rem;
+
+  transition: transform 0.2s;
+}
+#btnReinicia:hover {
+  transform: scale(1.1);
 }
 
-.show{
+.show {
   display: flex;
 }
