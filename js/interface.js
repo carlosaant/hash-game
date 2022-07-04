@@ -26,6 +26,7 @@ function handleClick(event) {
         setTimeout(() => {
           win_text_message.innerText = `Nenhum Vencedor!`;
           win_div_message.classList.add('show');
+          win_div_message.style.animationName = 'moveElem';
         }, 500);
       } else if (gameOver) {
         if (p1.ativo) {
@@ -33,12 +34,14 @@ function handleClick(event) {
             placarPlayers();
             win_text_message.innerText = `Jogador ${player1name.value} Venceu!`;
             win_div_message.classList.add('show');
+            win_div_message.style.animationName = 'moveElem';
           }, 500);
         } else if (p2.ativo) {
           setTimeout(() => {
             placarPlayers();
             win_text_message.innerText = `Jogador ${player2name.value} Venceu!`;
             win_div_message.classList.add('show');
+            win_div_message.style.animationName = 'moveElem';
           }, 500);
         }
       }
