@@ -21,21 +21,25 @@ function handleClick(event) {
   let position = squares.id;
 
   handleMove(position)
-    .then((empate)=>{
-      console.log(empate)
-      if(empate && gameOver){
-        win_text_message.innerText = `Nenhum Vencedor!`;
-        win_div_message.classList.add('show');
-      }else if (gameOver) {
+    .then(empate => {
+      if (empate && gameOver) {
+        setTimeout(() => {
+          win_text_message.innerText = `Nenhum Vencedor!`;
+          win_div_message.classList.add('show');
+        }, 500);
+      } else if (gameOver) {
         if (p1.ativo) {
-          placarPlayers();
-          // alert(`Jogador ${player1name.value} ganhou`);
-          win_text_message.innerText = `Jogador ${player1name.value} Venceu!`;
-          win_div_message.classList.add('show');
+          setTimeout(() => {
+            placarPlayers();
+            win_text_message.innerText = `Jogador ${player1name.value} Venceu!`;
+            win_div_message.classList.add('show');
+          }, 500);
         } else if (p2.ativo) {
-          placarPlayers();
-          win_text_message.innerText = `Jogador ${player2name.value} Venceu!`;
-          win_div_message.classList.add('show');
+          setTimeout(() => {
+            placarPlayers();
+            win_text_message.innerText = `Jogador ${player2name.value} Venceu!`;
+            win_div_message.classList.add('show');
+          }, 500);
         }
       }
     })
@@ -69,10 +73,11 @@ function resetSquares() {
       square.classList.remove('player2');
     });
     resolve();
-  }).then(resetGame)
-  .then(()=>{
-    win_div_message.classList.remove('show');
-  });
+  })
+    .then(resetGame)
+    .then(() => {
+      win_div_message.classList.remove('show');
+    });
 }
 
 function atualizaJogadorCampo() {
