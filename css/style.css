@@ -279,6 +279,11 @@ input[type='text']:focus {
   gap: 5rem;
 
   background-color: rgba(0, 0, 0, 0.9);
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  animation-timing-function: ease-out;
 }
 
 #winMessageText {
@@ -311,4 +316,15 @@ input[type='text']:focus {
 
 .show {
   display: flex;
+}
+
+@keyframes moveElem {
+  0% {
+    top: 100vh;
+    height: 0;
+  }
+  100% {
+    top: 0;
+    height: 100vh;
+  }
 }
